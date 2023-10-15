@@ -36,9 +36,20 @@ class List
 			pref->next = curent;
 		}
 	}
-	Node<T>* getNode() 
+	Node<T>* getNode(int index=-1) 
 	{
-		return head;
+		Node<T>* temp;
+		if(index<0)
+			return head;
+		else
+		{
+			temp = head;
+			for (int i = 0; i < index; i++)
+			{
+				temp = temp->next;
+			}
+			return temp;
+		}
 	}
 	int getLeng() 
 	{
@@ -60,8 +71,8 @@ int main()
 	list->AddEnd(2);
 	list->AddEnd(3);
 	list->AddEnd(45);
-	cout << list->getLeng()<< endl;
-
+	
+	cout << list->getNode(1)->val;
 	
 
 }
